@@ -1,0 +1,14 @@
+const fs = require('fs');
+const input = fs.readFileSync('/dev/stdin').toString().trim();
+const n = parseInt(input, 10);
+
+function fat(n) {
+    if (n === 0) {
+        return 1; // 0! === 1
+    } else {
+        return n * fat(n - 1); // 재귀 호출을 통해 값을 반환
+    }
+}
+
+// 팩토리얼 결과를 출력합니다.
+console.log(fat(n));
