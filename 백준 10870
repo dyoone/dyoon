@@ -1,0 +1,16 @@
+const fs = require('fs');
+const input = fs.readFileSync('/dev/stdin').toString().trim();
+const n = parseInt(input, 10);
+
+let nums = [0, 1]; // 기본 피보나치 수
+
+function fibo(n) {
+    if (n < nums.length) {
+        return nums[n]; // 이미 계산된 피보나치 수를 반환
+    }
+
+    // 새로운 피보나치 수를 계산하여 nums 배열에 추가
+    nums[n] = fibo(n - 1) + fibo(n - 2);
+    return nums[n];
+}
+console.log(fibo(n))
